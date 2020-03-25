@@ -8,6 +8,23 @@
 
 import Foundation
 
-let arrayWithFood = ["Макароны", "Рис", "Гречка", "Суши", "Суп", "Салат", "Картошка"]
+var arrayWithFood = ["Макароны", "Рис", "Гречка", "Суши", "Суп", "Салат", "Картошка"]
 let sectionsWithFood = ["Что добавим?", "Вся еда"]
-let dataModel = "temporary value for verification"
+
+func addItem(nameItem: String) {
+    arrayWithFood.append(nameItem)
+    saveData()
+}
+
+func removeItem(at index: Int) {
+    arrayWithFood.remove(at: index)
+    saveData()
+}
+
+func saveData() {
+    
+}
+
+func loadData() {
+    
+}

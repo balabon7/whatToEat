@@ -10,7 +10,11 @@ import UIKit
 
 class FoodSheetViewController: UIViewController {
     
-    //  @IBOutlet weak var FoodTableView: UITableView!
+    
+    // FIXME: FoodTableView
+    @IBOutlet weak var foodTableView: UITableView! // FIX
+    // FIXME: viewCell
+    let viewCell = CustomTableViewCell() // FIX
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +24,15 @@ class FoodSheetViewController: UIViewController {
         //self.navigationItem.title = "Что покушаем?"
         // self.navigationController?.navigationBar.prefersLargeTitles = true
         
+        // displayRandomValueFromArrayOfFood(array: arrayWithFood.randomElement())
         
-        displayRandomValueFromArrayOfFood(array: arrayWithFood.randomElement())
+    }
+    
+    
+    @IBAction func addDishAction(_ sender: UIButton) {
+        addItem(nameItem: "Name Item")
+        foodTableView.reloadData()
+        print(arrayWithFood)
         
     }
     
@@ -31,7 +42,7 @@ class FoodSheetViewController: UIViewController {
         }
         print("Random ->", array)
     }
-
+    
 }
 
 extension FoodSheetViewController: UITableViewDelegate, UITableViewDataSource {
@@ -63,19 +74,42 @@ extension FoodSheetViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath) as! CustomTableViewCell
+            cell.addButton.isHidden = false
             //cell.textLabel?.text = "Поле для ввода еды.."
-            
+            //cell.addButton.removeTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath) as!CustomTableViewCell
             
             cell.addButton.isHidden = true
-            cell.addButton.tintColor = #colorLiteral(red: 0.2274509804, green: 0.7882352941, blue: 0.3764705882, alpha: 1)
-            cell.addButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.7882352941, blue: 0.3764705882, alpha: 1)
+            // #colorLiteral(red: 0.2274509804, green: 0.7882352941, blue: 0.3764705882, alpha: 1)
             cell.newDishTexField.isHidden = true
             cell.textLabel?.text = arrayWithFood[indexPath.row]
             return cell
         }
     }
+    
+    // MARK: - Remote cell
+    func tableView(_ tableView: UITableView,  canEditRowAt indexPath: IndexPath) -> Bool {
+
+        return true
+    }
+
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+
+            removeItem(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+
+        }
+    }
+    
+    
+    
+    //    @objc func buttonClicked(sender: UIButton) {
+    //       print("Target")
+    //    }
     
 }

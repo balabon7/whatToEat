@@ -27,31 +27,36 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Новое блюдо" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R1Z-ag-SO4">
-                                                    <rect key="frame" x="20" y="6.5" width="293" height="33"/>
+                                                    <rect key="frame" x="20" y="5.5" width="275" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="1UY-6F-lda"/>
+                                                        <constraint firstAttribute="width" constant="275" id="dyo-hj-4DD"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CqX-RA-fjU">
-                                                    <rect key="frame" x="325" y="8" width="30" height="30"/>
+                                                    <rect key="frame" x="320" y="5.5" width="35" height="35"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="CqX-RA-fjU" secondAttribute="height" multiplier="1:1" id="YLC-HK-Gya"/>
-                                                        <constraint firstAttribute="height" constant="30" id="kMp-p0-aRi"/>
-                                                        <constraint firstAttribute="width" constant="30" id="tsc-XQ-Cs0"/>
+                                                        <constraint firstAttribute="width" constant="35" id="2aU-hq-78u"/>
+                                                        <constraint firstAttribute="width" secondItem="CqX-RA-fjU" secondAttribute="height" multiplier="1:1" id="KvC-3U-BuR"/>
+                                                        <constraint firstAttribute="height" constant="35" id="Q9o-9E-qLV"/>
                                                     </constraints>
                                                     <state key="normal" image="addAction"/>
+                                                    <connections>
+                                                        <action selector="addDishAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9uY-z2-zLS"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="R1Z-ag-SO4" firstAttribute="top" secondItem="ZLv-eu-d3e" secondAttribute="top" constant="6.5" id="Gg5-8q-koa"/>
-                                                <constraint firstItem="CqX-RA-fjU" firstAttribute="leading" secondItem="R1Z-ag-SO4" secondAttribute="trailing" constant="12" id="OPj-Di-x6n"/>
-                                                <constraint firstAttribute="trailing" secondItem="CqX-RA-fjU" secondAttribute="trailing" constant="20" id="QOg-YF-pvz"/>
-                                                <constraint firstItem="R1Z-ag-SO4" firstAttribute="leading" secondItem="ZLv-eu-d3e" secondAttribute="leading" constant="20" id="ktY-tf-4rE"/>
-                                                <constraint firstItem="CqX-RA-fjU" firstAttribute="top" secondItem="ZLv-eu-d3e" secondAttribute="top" constant="8" id="npi-CV-Fq7"/>
-                                                <constraint firstItem="R1Z-ag-SO4" firstAttribute="centerY" secondItem="ZLv-eu-d3e" secondAttribute="centerY" id="t42-ec-f4K"/>
+                                                <constraint firstItem="R1Z-ag-SO4" firstAttribute="leading" secondItem="ZLv-eu-d3e" secondAttribute="leading" constant="20" id="Itz-kK-mrV"/>
+                                                <constraint firstItem="CqX-RA-fjU" firstAttribute="centerY" secondItem="ZLv-eu-d3e" secondAttribute="centerY" id="Vxf-Eg-gzU"/>
+                                                <constraint firstAttribute="trailing" secondItem="CqX-RA-fjU" secondAttribute="trailing" constant="20" id="Y1i-v9-vJ8"/>
+                                                <constraint firstItem="R1Z-ag-SO4" firstAttribute="centerY" secondItem="ZLv-eu-d3e" secondAttribute="centerY" id="cpF-Of-cbr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addButton" destination="CqX-RA-fjU" id="OoT-wo-6za"/>
+                                            <outlet property="addButton" destination="CqX-RA-fjU" id="O79-re-R4M"/>
                                             <outlet property="newDishTexField" destination="R1Z-ag-SO4" id="qVr-Ze-iKK"/>
                                         </connections>
                                     </tableViewCell>
@@ -72,6 +77,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="wcv-is-dPN"/>
+                    <connections>
+                        <outlet property="foodTableView" destination="gNN-Xo-rSb" id="5bh-UN-nud"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

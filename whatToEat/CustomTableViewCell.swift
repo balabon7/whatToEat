@@ -9,17 +9,26 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-
+    
+    
+    
     @IBOutlet weak var newDishTexField: UITextField!
     @IBOutlet weak var addButton: UIButton!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
-
+    
+    
+//    @IBAction func addDishAction1(_ sender: UIButton) {
+//      addItem(nameItem: "Name Item")
+//
+//        print(arrayWithFood)
+//    }
+//
 }
