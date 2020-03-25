@@ -20,6 +20,7 @@ class FoodSheetViewController: UIViewController {
         //self.navigationItem.title = "Что покушаем?"
         // self.navigationController?.navigationBar.prefersLargeTitles = true
         
+        
         displayRandomValueFromArrayOfFood(array: arrayWithFood.randomElement())
         
     }
