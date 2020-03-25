@@ -10,9 +10,7 @@ import UIKit
 
 class FoodSheetViewController: UIViewController {
     
-  //  @IBOutlet weak var FoodTableView: UITableView!
-   
-    
+    //  @IBOutlet weak var FoodTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +20,20 @@ class FoodSheetViewController: UIViewController {
         //self.navigationItem.title = "Что покушаем?"
         // self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        let randomName = arrayWithFood.randomElement()
-        print("Random _>", randomName!)
-    
+        displayRandomValueFromArrayOfFood(array: arrayWithFood.randomElement())
+        
     }
     
+    func displayRandomValueFromArrayOfFood(array: String? ){
+        guard let array = array else {
+            return print("No value exists")
+        }
+        print("Random ->", array)
+    }
+
 }
 
 extension FoodSheetViewController: UITableViewDelegate, UITableViewDataSource {
-
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionsWithFood.count
@@ -52,8 +55,8 @@ extension FoodSheetViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return 46
-     }
+        return 46
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -73,5 +76,5 @@ extension FoodSheetViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
-
+    
 }
