@@ -10,3 +10,4 @@ import Foundation
 
 let arrayWithFood = ["Макароны", "Рис", "Гречка", "Суши", "Суп", "Салат", "Картошка"]
 let sectionsWithFood = ["Что добавим?", "Вся еда"]
+let dataModel = "temporary value for verification"
