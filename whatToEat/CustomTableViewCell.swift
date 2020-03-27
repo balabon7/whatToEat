@@ -23,12 +23,5 @@ class CustomTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
     }
-    
-    
-//    @IBAction func addDishAction1(_ sender: UIButton) {
-//      addItem(nameItem: "Name Item")
-//
-//        print(arrayWithFood)
-//    }
-//
+
 }

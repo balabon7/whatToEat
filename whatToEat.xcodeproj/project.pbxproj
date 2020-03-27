@@ -8,19 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		0429DFE8242A226400053ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0429DFE7242A226400053ECF /* AppDelegate.swift */; };
-		0429DFEA242A226400053ECF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0429DFE9242A226400053ECF /* SceneDelegate.swift */; };
 		0429DFEF242A226500053ECF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0429DFED242A226500053ECF /* Main.storyboard */; };
 		0429DFF1242A228B00053ECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0429DFF0242A228B00053ECF /* Assets.xcassets */; };
 		0429DFF4242A228B00053ECF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0429DFF2242A228B00053ECF /* LaunchScreen.storyboard */; };
 		0429DFFC242A245000053ECF /* FoodSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0429DFFB242A245000053ECF /* FoodSheetViewController.swift */; };
 		0429DFFE242A24AC00053ECF /* FoodDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0429DFFD242A24AC00053ECF /* FoodDataModel.swift */; };
 		0429E008242A67F400053ECF /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0429E007242A67F400053ECF /* CustomTableViewCell.swift */; };
+		0498ED10242D169800D38607 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498ED0F242D169800D38607 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0429DFE4242A226400053ECF /* whatToEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whatToEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0429DFE7242A226400053ECF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0429DFE9242A226400053ECF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0429DFEE242A226500053ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0429DFF0242A228B00053ECF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0429DFF3242A228B00053ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -28,6 +27,7 @@
 		0429DFFB242A245000053ECF /* FoodSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSheetViewController.swift; sourceTree = "<group>"; };
 		0429DFFD242A24AC00053ECF /* FoodDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDataModel.swift; sourceTree = "<group>"; };
 		0429E007242A67F400053ECF /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		0498ED0F242D169800D38607 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				0429DFE7242A226400053ECF /* AppDelegate.swift */,
-				0429DFE9242A226400053ECF /* SceneDelegate.swift */,
 				0429DFED242A226500053ECF /* Main.storyboard */,
+				0498ED0F242D169800D38607 /* BaseViewController.swift */,
 				0429DFFD242A24AC00053ECF /* FoodDataModel.swift */,
 				0429DFFB242A245000053ECF /* FoodSheetViewController.swift */,
 				0429E007242A67F400053ECF /* CustomTableViewCell.swift */,
@@ -148,7 +148,7 @@
 				0429E008242A67F400053ECF /* CustomTableViewCell.swift in Sources */,
 				0429DFE8242A226400053ECF /* AppDelegate.swift in Sources */,
 				0429DFFE242A24AC00053ECF /* FoodDataModel.swift in Sources */,
-				0429DFEA242A226400053ECF /* SceneDelegate.swift in Sources */,
+				0498ED10242D169800D38607 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +295,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SY7683D43P;
 				INFOPLIST_FILE = whatToEat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,7 +314,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SY7683D43P;
 				INFOPLIST_FILE = whatToEat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
