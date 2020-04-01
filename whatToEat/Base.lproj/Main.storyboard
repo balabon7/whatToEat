@@ -2,15 +2,16 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YdV-wR-bSb">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Food Sheet View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FoodSheetViewController" customModule="whatToEat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="whatToEat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FoodCell" rowHeight="46" id="uGa-oz-KCa" customClass="CustomTableViewCell" customModule="whatToEat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="46" id="uGa-oz-KCa" customClass="CustomTableViewCell" customModule="whatToEat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uGa-oz-KCa" id="ZLv-eu-d3e">
@@ -30,34 +31,35 @@
                                                     <rect key="frame" x="20" y="5.5" width="275" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="1UY-6F-lda"/>
-                                                        <constraint firstAttribute="width" constant="275" id="dyo-hj-4DD"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="275" id="dyo-hj-4DD"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CqX-RA-fjU">
-                                                    <rect key="frame" x="320" y="5.5" width="35" height="35"/>
+                                                    <rect key="frame" x="325" y="8" width="30" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="35" id="2aU-hq-78u"/>
+                                                        <constraint firstAttribute="width" constant="30" id="2aU-hq-78u"/>
                                                         <constraint firstAttribute="width" secondItem="CqX-RA-fjU" secondAttribute="height" multiplier="1:1" id="KvC-3U-BuR"/>
-                                                        <constraint firstAttribute="height" constant="35" id="Q9o-9E-qLV"/>
+                                                        <constraint firstAttribute="height" constant="30" id="Q9o-9E-qLV"/>
                                                     </constraints>
-                                                    <state key="normal" image="addAction"/>
+                                                    <state key="normal" image="plus"/>
                                                     <connections>
-                                                        <action selector="addDishAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9uY-z2-zLS"/>
+                                                        <action selector="addButton:" destination="uGa-oz-KCa" eventType="touchUpInside" id="A7j-t5-Zjz"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="R1Z-ag-SO4" firstAttribute="leading" secondItem="ZLv-eu-d3e" secondAttribute="leading" constant="20" id="Itz-kK-mrV"/>
+                                                <constraint firstItem="CqX-RA-fjU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="R1Z-ag-SO4" secondAttribute="trailing" constant="8" symbolic="YES" id="Pv9-vr-A5h"/>
                                                 <constraint firstItem="CqX-RA-fjU" firstAttribute="centerY" secondItem="ZLv-eu-d3e" secondAttribute="centerY" id="Vxf-Eg-gzU"/>
                                                 <constraint firstAttribute="trailing" secondItem="CqX-RA-fjU" secondAttribute="trailing" constant="20" id="Y1i-v9-vJ8"/>
                                                 <constraint firstItem="R1Z-ag-SO4" firstAttribute="centerY" secondItem="ZLv-eu-d3e" secondAttribute="centerY" id="cpF-Of-cbr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addButton" destination="CqX-RA-fjU" id="O79-re-R4M"/>
-                                            <outlet property="newDishTexField" destination="R1Z-ag-SO4" id="qVr-Ze-iKK"/>
+                                            <outlet property="addButton" destination="CqX-RA-fjU" id="dix-uF-iTM"/>
+                                            <outlet property="newItemTextField" destination="R1Z-ag-SO4" id="qVr-Ze-iKK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -78,7 +80,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wcv-is-dPN"/>
                     <connections>
-                        <outlet property="foodTableView" destination="gNN-Xo-rSb" id="5bh-UN-nud"/>
+                        <outlet property="tableView" destination="gNN-Xo-rSb" id="6Fl-LH-O7c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -105,6 +107,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addAction" width="60" height="60"/>
+        <image name="plus" width="512" height="512"/>
     </resources>
 </document>

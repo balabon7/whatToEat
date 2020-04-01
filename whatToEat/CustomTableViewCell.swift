@@ -8,20 +8,25 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
-    
-    
-    
-    @IBOutlet weak var newDishTexField: UITextField!
+protocol ButtonDelegate: class {
+    func whenTapAdd(sender: UIButton)
+}
+
+class CustomTableViewCell: UITableViewCell,  UITextFieldDelegate  {
+
+    @IBOutlet weak var newItemTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+   weak var delegate: ButtonDelegate?
+    
+    @IBAction func addButton(_ sender: UIButton) {
+        
+        guard let text = newItemTextField.text else {return}
+        addNewItem(nameItem: text)
+        
+        self.delegate?.whenTapAdd(sender: sender)
+        newItemTextField.text = nil
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-    }
-
+    
 }
