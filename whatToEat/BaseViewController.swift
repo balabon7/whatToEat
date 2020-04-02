@@ -23,7 +23,7 @@ class BaseViewController: UIViewController {
     //MARK:  - Display Random Value From Array Of Food
     func displayRandomValueFromArrayOfFood(item: String? ) -> String {
         guard let item = item else {
-            return "No value exists"
+            return "No value exists" // Ничего нету
         }
         return item
     }
@@ -40,3 +40,4 @@ extension BaseViewController {
         view.endEditing(true)
     }
 }
+
