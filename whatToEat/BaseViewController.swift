@@ -10,20 +10,11 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
-    //MARK: - Show Alert WithOut Action
-    func showAlert(title: String, message: String) {
-      DispatchQueue.main.async {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
-      }
-    }
     
     //MARK:  - Display Random Value From Array Of Food
     func displayRandomValueFromArrayOfFood(item: String? ) -> String {
         guard let item = item else {
-            return "No value exists" // Ничего нету
+            return noValueExists
         }
         return item
     }

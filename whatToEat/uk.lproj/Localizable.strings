@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  whatToEat
+
+  Created by mac on 03.04.2020.
+  Copyright © 2020 Aleksandr Balabon. All rights reserved.
+*/
+
+"generate_key" = "Згенерувати";
+"whatToEat_key" = "Що поїсти?";
+"dishName_key" = "Назва страви";
+"noValueExists_key" = "Список порожній";
+"addHere_key" = "Додати";
+"allFood_key" = "Вся їжа";
+
+"omelette_key" = "Яєчня";
+"boiledBuckwheat_key" = "Гречана каша";
+"pilaf_key" = "Плов";
+"soup_key" = "Суп";
+"salad_key" = "Салат";
+"pasta_key" = "Макарони";

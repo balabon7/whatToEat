@@ -17,7 +17,7 @@ class MainViewController: BaseViewController, ButtonDelegate {
     // MARK: - Generate button properties
     private let button: UIButton = {
         let view = UIButton()
-        view.setAttributedTitle(NSAttributedString(string: "Generate", attributes: [.font : UIFont.boldSystemFont(ofSize: 17), .foregroundColor : UIColor.white]), for: .normal)
+        view.setAttributedTitle(NSAttributedString(string: generate, attributes: [.font : UIFont.boldSystemFont(ofSize: 17), .foregroundColor : UIColor.white]), for: .normal)
         view.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.7882352941, blue: 0.3764705882, alpha: 1)
         view.layer.cornerRadius = 12
         return view
@@ -37,7 +37,6 @@ class MainViewController: BaseViewController, ButtonDelegate {
     //MARK: -  Blur View Label
     private let label: UILabel = {
         let label = UILabel()
-        label.text = ""
         label.font = UIFont.boldSystemFont(ofSize: 23)
         label.textColor = .gray
         label.textAlignment = .center
@@ -55,12 +54,12 @@ class MainViewController: BaseViewController, ButtonDelegate {
         blurView.isHidden = true
         hideViewWhenTappedAround()
         
-        self.navigationItem.title = "What to eat?" //"Что покушаем?"
+        self.navigationItem.title = whatToEat
         tableView.tableFooterView = UIView() // hide unnecessary table lines
         
-        // self.navigationController?.navigationBar.prefersLargeTitles = true
-        //        tableView.allowsMultipleSelectionDuringEditing = true  //add checkmark
-        //        tableView.setEditing(true, animated: false)
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        tableView.allowsMultipleSelectionDuringEditing = true  //add checkmark
+//        tableView.setEditing(true, animated: false)
     }
     
     // MARK: -  ButtonViewAndContraints
@@ -120,7 +119,7 @@ class MainViewController: BaseViewController, ButtonDelegate {
             }
         }
     }
-
+    
     //MARK: - Protocol Delegate
     func whenTapAdd(sender: UIButton) {
         // print("Protocol on button Tap")
@@ -166,7 +165,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             cell.addButton.isHidden = false
             cell.textField.isHidden = false
-            cell.textField.placeholder = "New item"
+            cell.textField.placeholder = dishName
             
             cell.textLabel?.isHidden = true
             return cell

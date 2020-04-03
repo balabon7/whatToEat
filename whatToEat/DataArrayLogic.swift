@@ -29,7 +29,7 @@ func loadData() {
     if let arrayData = UserDefaults.standard.array(forKey: "FoodData" )  {
         items = arrayData as! [String]
     } else {
-        items = ["Omelette","Boiled buckwheat","Cream of rice","Potato mash","Soup", "Salad","Pasta"].sorted() //["Макароны", "Рис", "Гречка", "Суп", "Салат", "Картошка"]
+        items = [omelette, boiledBuckwheat, pilaf, soup, salad, pasta].sorted() 
     }
     
 }
