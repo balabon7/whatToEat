@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040678B2245C16B50038A04E /* History ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040678B1245C16B50038A04E /* History ViewController.swift */; };
 		0429DFE8242A226400053ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0429DFE7242A226400053ECF /* AppDelegate.swift */; };
 		0429DFEF242A226500053ECF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0429DFED242A226500053ECF /* Main.storyboard */; };
 		0429DFF1242A228B00053ECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0429DFF0242A228B00053ECF /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040678B1245C16B50038A04E /* History ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History ViewController.swift"; sourceTree = "<group>"; };
 		0429DFE4242A226400053ECF /* whatToEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whatToEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0429DFE7242A226400053ECF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0429DFEE242A226500053ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				04CBC7F92437433F00B9FDFC /* DataModel.swift */,
 				0498ED0F242D169800D38607 /* BaseViewController.swift */,
 				0429DFFB242A245000053ECF /* MainViewController.swift */,
+				040678B1245C16B50038A04E /* History ViewController.swift */,
 				0429E007242A67F400053ECF /* CustomTableViewCell.swift */,
 				0429DFF0242A228B00053ECF /* Assets.xcassets */,
 				0429DFF2242A228B00053ECF /* LaunchScreen.storyboard */,
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040678B2245C16B50038A04E /* History ViewController.swift in Sources */,
 				04CBC7FA2437433F00B9FDFC /* DataModel.swift in Sources */,
 				045CF927243489E200E26A47 /* DataArrayLogic.swift in Sources */,
 				0429DFFC242A245000053ECF /* MainViewController.swift in Sources */,
@@ -343,7 +347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SY7683D43P;
 				INFOPLIST_FILE = whatToEat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -362,7 +366,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SY7683D43P;
 				INFOPLIST_FILE = whatToEat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

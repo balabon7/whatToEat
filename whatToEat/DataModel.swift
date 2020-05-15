@@ -9,4 +9,17 @@
 import Foundation
 
 var items = [String]()
+
 let sectionsWithFood = [addHere,allFood]
+
+struct DataHistory: Codable {
+    
+    var date: String
+    var value: [String]
+
+}
+
+var models = [DataHistory]()
+let defaults = UserDefaults.standard
+var decodedObject: [DataHistory] = [DataHistory]()
+

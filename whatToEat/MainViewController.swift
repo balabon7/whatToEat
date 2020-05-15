@@ -10,9 +10,12 @@ import UIKit
 
 class MainViewController: BaseViewController, ButtonDelegate {
     
+    
     @IBOutlet weak var tableView: UITableView!
     
     private var timer: Timer?
+    var launchCount = 0 // количество запусков приложения (Пасхалка)
+    var runCount = 0 // счетчик
     
     // MARK: - Generate button properties
     private let button: UIButton = {
@@ -26,7 +29,7 @@ class MainViewController: BaseViewController, ButtonDelegate {
     //MARK: -  Blur View
     private let blurView: UIVisualEffectView = {
         let view = UIVisualEffectView()
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 20
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         let blurEffect = UIBlurEffect(style: .prominent)
@@ -44,6 +47,16 @@ class MainViewController: BaseViewController, ButtonDelegate {
         return label
     }()
     
+    //    //MARK: -  Launch Count Label
+    //        private let launchCountLabel: UILabel = {
+    //            let label = UILabel()
+    //            label.font = UIFont.boldSystemFont(ofSize: 10)
+    //            label.textColor = .black
+    //            label.textAlignment = .center
+    //            label.translatesAutoresizingMaskIntoConstraints = false
+    //            return label
+    //        }()
+    
     
     // MARK: - View Did Load
     override func viewDidLoad() {
@@ -57,9 +70,15 @@ class MainViewController: BaseViewController, ButtonDelegate {
         self.navigationItem.title = whatToEat
         tableView.tableFooterView = UIView() // hide unnecessary table lines
         
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-//        tableView.allowsMultipleSelectionDuringEditing = true  //add checkmark
-//        tableView.setEditing(true, animated: false)
+        //        self.navigationController?.navigationBar.prefersLargeTitles = true
+        //        tableView.allowsMultipleSelectionDuringEditing = true  //add checkmark
+        //        tableView.setEditing(true, animated: false)
+        
+        //        launchCount = UserDefaults.standard.integer(forKey: "launchCount")
+        //        launchCountLabel.text = "\(launchCount)"
+        
+        decodedObject = defaults.decode(for: [DataHistory].self, using: String(describing: DataHistory.self)) ?? [DataHistory]()
+        
     }
     
     // MARK: -  ButtonViewAndContraints
@@ -69,6 +88,8 @@ class MainViewController: BaseViewController, ButtonDelegate {
         button.addTarget(self, action: #selector(generateButtonAction), for: .touchUpInside)
         view.addSubview(button)
         view.addSubview(blurView)
+        
+//        view.addSubview(launchCountLabel)
         
     }
     
@@ -87,13 +108,23 @@ class MainViewController: BaseViewController, ButtonDelegate {
         blurView.contentView.addSubview(label)
         label.centerXAnchor.constraint(equalTo: blurView.centerXAnchor).isActive = true
         label.centerYAnchor.constraint(equalTo: blurView.centerYAnchor).isActive = true
+        // Launch Count Label
+//        launchCountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        launchCountLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
     }
+    
+    //MARK: - Timer func
     
     //  Action for button generate - Timer
     @objc func anyTimerHey() {
         let randomItem = displayRandomValueFromArrayOfFood(item: items.randomElement())
         label.text = randomItem
         
+        // save date and value to userdefaults
+        if runCount == 13 {
+            //          addDateForItem(nameItem: randomItem)
+            addDateFor(item: randomItem)
+        }
     }
     
     //MARK: - Hide Custom Blur View then tap area
@@ -110,14 +141,34 @@ class MainViewController: BaseViewController, ButtonDelegate {
     @objc func generateButtonAction() {
         blurView.isHidden = false
         
-        var runCount = 0
+        //        var runCount = 0
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             self.anyTimerHey()
-            runCount += 1
-            if runCount == 14 {
+            self.runCount += 1
+            if self.runCount == 14 {
+                
                 timer.invalidate()
+                self.runCount = 0
             }
+            
         }
+        
+        //Подсчет использования приложением..
+        switch launchCount {
+        case 10:
+            print("Вау, вы воспользовались приложение уже 10 раз ))")
+        case 50:
+            print("Вау, вы воспользовались приложение уже 50 раз ))")
+        case 100:
+            print("Ничоси, вы воспользовались приложение уже 100 раз ))")
+        default:
+            break
+        }
+        
+        launchCount += 1
+        UserDefaults.standard.set(launchCount, forKey: "launchCount")
+        UserDefaults.standard.synchronize()
+//        launchCountLabel.text = "\(launchCount)"
     }
     
     //MARK: - Protocol Delegate
@@ -166,7 +217,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             cell.addButton.isHidden = false
             cell.textField.isHidden = false
             cell.textField.placeholder = dishName
-            
             cell.textLabel?.isHidden = true
             return cell
         } else {

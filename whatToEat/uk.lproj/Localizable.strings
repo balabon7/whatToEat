@@ -6,6 +6,8 @@
   Copyright © 2020 Aleksandr Balabon. All rights reserved.
 */
 
+"history_key" = "Історія";
+"clear_key" = "Очистити";
 "generate_key" = "Згенерувати";
 "whatToEat_key" = "Що поїсти?";
 "dishName_key" = "Назва страви";

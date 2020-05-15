@@ -9,6 +9,8 @@
 import Foundation
 //import UIKit
 
+let history = NSLocalizedString("history_key", comment: "")
+let clear = NSLocalizedString("clear_key", comment: "")
 let generate = NSLocalizedString("generate_key", comment: "")
 let whatToEat = NSLocalizedString("whatToEat_key", comment: "")
 let dishName = NSLocalizedString("dishName_key", comment: "")

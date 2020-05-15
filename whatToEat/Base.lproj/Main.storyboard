@@ -81,7 +81,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wcv-is-dPN"/>
+                    <navigationItem key="navigationItem" id="wcv-is-dPN">
+                        <barButtonItem key="leftBarButtonItem" image="clock" id="U9d-Lu-omY">
+                            <connections>
+                                <segue destination="dP1-a9-rjA" kind="show" id="emh-ya-a4T"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="gNN-Xo-rSb" id="6Fl-LH-O7c"/>
                     </connections>
@@ -89,6 +95,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="129" y="-6"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="nR6-Uh-qWh">
+            <objects>
+                <viewController id="dP1-a9-rjA" customClass="HistoryViewController" customModule="whatToEat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JPH-t6-5nS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NiQ-lh-EXZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoryCell" id="96w-Mc-Dku">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="96w-Mc-Dku" id="NaR-fi-IpT">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="dP1-a9-rjA" id="vSH-Cq-UOZ"/>
+                                    <outlet property="delegate" destination="dP1-a9-rjA" id="WZP-WD-GoL"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="NiQ-lh-EXZ" firstAttribute="bottom" secondItem="RCK-d4-Q0M" secondAttribute="bottom" id="Vct-cg-BnL"/>
+                            <constraint firstItem="NiQ-lh-EXZ" firstAttribute="leading" secondItem="RCK-d4-Q0M" secondAttribute="leading" id="aZW-8H-Obk"/>
+                            <constraint firstItem="NiQ-lh-EXZ" firstAttribute="top" secondItem="JPH-t6-5nS" secondAttribute="top" id="kpk-By-fXR"/>
+                            <constraint firstItem="NiQ-lh-EXZ" firstAttribute="trailing" secondItem="RCK-d4-Q0M" secondAttribute="trailing" id="xjb-t9-Eek"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RCK-d4-Q0M"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="History" id="CRH-9b-C8i"/>
+                    <connections>
+                        <outlet property="tableView" destination="NiQ-lh-EXZ" id="d8v-k7-E61"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GyN-0J-Yac" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901.60000000000002" y="-5.8470764617691158"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="isn-qa-C2R">
@@ -98,6 +149,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eXp-aN-RHD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -110,6 +162,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clock" width="30" height="30"/>
         <image name="plus" width="512" height="512"/>
     </resources>
 </document>

@@ -29,7 +29,19 @@ func loadData() {
     if let arrayData = UserDefaults.standard.array(forKey: "FoodData" )  {
         items = arrayData as! [String]
     } else {
-        items = [omelette, boiledBuckwheat, pilaf, soup, salad, pasta].sorted() 
+        items = [omelette, boiledBuckwheat, pilaf, soup, salad, pasta]
     }
+}
+
+func addDateFor(item: String) {
+
+    guard item != "" else {return}
     
+    let df = DateFormatter()
+    df.dateFormat = "dd/MM/yyyy HH:mm:ss"
+    let strDate = df.string(from: Date())
+    let historyData = DataHistory(date: strDate, value: [item])
+
+    decodedObject.append(historyData)
+    UserDefaults.standard.encode(for:decodedObject, using: String(describing: DataHistory.self))
 }
