@@ -6,6 +6,7 @@
   Copyright © 2020 Aleksandr Balabon. All rights reserved.
 */
 
+"emptyList_key" = "Your history list is empty now";
 "history_key" = "History";
 "clear_key" = "Clear";
 "generate_key" = "Generate";

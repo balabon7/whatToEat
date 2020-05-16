@@ -20,6 +20,20 @@ class HistoryViewController: UIViewController {
         view.layer.cornerRadius = 12
         return view
     }()
+    
+    // MARK: - Empty List Label
+    private let label: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = .lightGray
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        label.text = emptyList
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
     // MARK: - Contraints
     private func activateContraints() {
         // Clear Button
@@ -28,6 +42,11 @@ class HistoryViewController: UIViewController {
         button.widthAnchor.constraint(equalToConstant: 300).isActive = true
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
+        // Empty List Label
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        label.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        label.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     // MARK: -  ButtonViewAndContraints
@@ -36,13 +55,15 @@ class HistoryViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(clearButtonAction), for: .touchUpInside)
         view.addSubview(button)
+        view.addSubview(label)
     }
     
     @objc func clearButtonAction(){
         decodedObject.removeAll()
         UserDefaults.standard.encode(for:decodedObject, using: String(describing: DataHistory.self))
         tableView.reloadData()
-         button.isHidden = true
+        button.isHidden = true
+        label.isHidden = false
     }
     
     // MARK: -  View Did Load
@@ -56,8 +77,10 @@ class HistoryViewController: UIViewController {
         
         if decodedObject.isEmpty {
             button.isHidden = true
+            label.isHidden = false
         } else {
             button.isHidden = false
+            label.isHidden = true
         }
         
     }

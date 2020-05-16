@@ -9,6 +9,7 @@
 import Foundation
 //import UIKit
 
+let emptyList = NSLocalizedString("emptyList_key", comment: "")
 let history = NSLocalizedString("history_key", comment: "")
 let clear = NSLocalizedString("clear_key", comment: "")
 let generate = NSLocalizedString("generate_key", comment: "")
