@@ -14,9 +14,11 @@ class HistoryViewController: UIViewController {
     
     // MARK: - Clear button properties
     private let button: UIButton = {
-        let view = UIButton()
+        let view = AnimationButton()
         view.setAttributedTitle(NSAttributedString(string: clear, attributes: [.font : UIFont.boldSystemFont(ofSize: 17), .foregroundColor : UIColor.white]), for: .normal)
         view.backgroundColor = #colorLiteral(red: 1, green: 0.6056655049, blue: 0, alpha: 1)
+        view.touchUpColor = #colorLiteral(red: 1, green: 0.6056655049, blue: 0, alpha: 1)
+        view.touchDownColor = #colorLiteral(red: 0.8954037119, green: 0.5242311732, blue: 0.006521536724, alpha: 1)
         view.layer.cornerRadius = 12
         return view
     }()
@@ -32,7 +34,6 @@ class HistoryViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
     
     // MARK: - Contraints
     private func activateContraints() {
@@ -62,8 +63,9 @@ class HistoryViewController: UIViewController {
         decodedObject.removeAll()
         UserDefaults.standard.encode(for:decodedObject, using: String(describing: DataHistory.self))
         tableView.reloadData()
-        button.isHidden = true
-        label.isHidden = false
+        
+        button.fadeOut() // button.isHidden = true
+        label.fadeIn() //label.isHidden = false
     }
     
     // MARK: -  View Did Load
@@ -82,12 +84,15 @@ class HistoryViewController: UIViewController {
             button.isHidden = false
             label.isHidden = true
         }
-        
     }
-    
 }
 
+    // MARK: - TableView Protocols: Delegate and DataSource
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     // number of sections
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -102,17 +107,13 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return decodedObject[section].value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath)
-        
         cell.textLabel?.text = decodedObject[indexPath.section].value[indexPath.row]
-        
         return cell
     }
-    
 }

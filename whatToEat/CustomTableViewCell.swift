@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ButtonDelegate: class {
-    func whenTapAdd(sender: UIButton)
+    func addButtonPressed(sender: UIButton)
 }
 
 class CustomTableViewCell: UITableViewCell, UITextFieldDelegate  {
@@ -45,7 +45,7 @@ class CustomTableViewCell: UITableViewCell, UITextFieldDelegate  {
         guard let text = textField.text else {return}
         addNewItem(nameItem: text)
         
-        self.delegate?.whenTapAdd(sender: sender)
+        self.delegate?.addButtonPressed(sender: sender)
         textField.text = nil
     }
     

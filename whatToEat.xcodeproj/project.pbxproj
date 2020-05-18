@@ -16,6 +16,7 @@
 		0429E008242A67F400053ECF /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0429E007242A67F400053ECF /* CustomTableViewCell.swift */; };
 		045CF927243489E200E26A47 /* DataArrayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045CF926243489E200E26A47 /* DataArrayLogic.swift */; };
 		0498ED10242D169800D38607 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498ED0F242D169800D38607 /* BaseViewController.swift */; };
+		04B075972472D2D2005C41A6 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B075962472D2D2005C41A6 /* AnimationButton.swift */; };
 		04CBC7E824372A6200B9FDFC /* DataTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CBC7E724372A6200B9FDFC /* DataTranslation.swift */; };
 		04CBC7F424372C1600B9FDFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04CBC7F624372C1600B9FDFC /* Localizable.strings */; };
 		04CBC7FA2437433F00B9FDFC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CBC7F92437433F00B9FDFC /* DataModel.swift */; };
@@ -36,6 +37,7 @@
 		043D216D2435F9B8005DEB20 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		045CF926243489E200E26A47 /* DataArrayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataArrayLogic.swift; sourceTree = "<group>"; };
 		0498ED0F242D169800D38607 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		04B075962472D2D2005C41A6 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
 		04CBC7E724372A6200B9FDFC /* DataTranslation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTranslation.swift; sourceTree = "<group>"; };
 		04CBC7F524372C1600B9FDFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		04CBC7F724372C1800B9FDFC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				0429DFFB242A245000053ECF /* MainViewController.swift */,
 				040678B1245C16B50038A04E /* History ViewController.swift */,
 				0429E007242A67F400053ECF /* CustomTableViewCell.swift */,
+				04B075962472D2D2005C41A6 /* AnimationButton.swift */,
 				0429DFF0242A228B00053ECF /* Assets.xcassets */,
 				0429DFF2242A228B00053ECF /* LaunchScreen.storyboard */,
 				0429DFF5242A228B00053ECF /* Info.plist */,
@@ -172,6 +175,7 @@
 				040678B2245C16B50038A04E /* History ViewController.swift in Sources */,
 				04CBC7FA2437433F00B9FDFC /* DataModel.swift in Sources */,
 				045CF927243489E200E26A47 /* DataArrayLogic.swift in Sources */,
+				04B075972472D2D2005C41A6 /* AnimationButton.swift in Sources */,
 				0429DFFC242A245000053ECF /* MainViewController.swift in Sources */,
 				0429E008242A67F400053ECF /* CustomTableViewCell.swift in Sources */,
 				04CBC7E824372A6200B9FDFC /* DataTranslation.swift in Sources */,
@@ -345,6 +349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = SY7683D43P;
 				INFOPLIST_FILE = whatToEat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -364,6 +369,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = SY7683D43P;
 				INFOPLIST_FILE = whatToEat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

@@ -10,18 +10,20 @@ import UIKit
 
 class MainViewController: BaseViewController, ButtonDelegate {
     
-    
     @IBOutlet weak var tableView: UITableView!
     
     private var timer: Timer?
-    var launchCount = 0 // количество запусков приложения (Пасхалка)
-    var runCount = 0 // счетчик
+   // private var launchCount = 0 // количество запусков приложения (Пасхалка)
+    private var runCount = 0 // счетчик
     
     // MARK: - Generate button properties
     private let button: UIButton = {
-        let view = UIButton()
+        let view = AnimationButton()
         view.setAttributedTitle(NSAttributedString(string: generate, attributes: [.font : UIFont.boldSystemFont(ofSize: 17), .foregroundColor : UIColor.white]), for: .normal)
-        view.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.7882352941, blue: 0.3764705882, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.2588235294, green: 0.7803921569, blue: 0.3960784314, alpha: 1)
+        view.touchUpColor = #colorLiteral(red: 0.2588235294, green: 0.7803921569, blue: 0.3960784314, alpha: 1)
+        view.touchDownColor = #colorLiteral(red: 0.173494445, green: 0.6229707873, blue: 0.3023637933, alpha: 1)
+        
         view.layer.cornerRadius = 12
         return view
     }()
@@ -88,8 +90,7 @@ class MainViewController: BaseViewController, ButtonDelegate {
         button.addTarget(self, action: #selector(generateButtonAction), for: .touchUpInside)
         view.addSubview(button)
         view.addSubview(blurView)
-        
-//        view.addSubview(launchCountLabel)
+        // view.addSubview(launchCountLabel)
         
     }
     
@@ -109,72 +110,83 @@ class MainViewController: BaseViewController, ButtonDelegate {
         label.centerXAnchor.constraint(equalTo: blurView.centerXAnchor).isActive = true
         label.centerYAnchor.constraint(equalTo: blurView.centerYAnchor).isActive = true
         // Launch Count Label
-//        launchCountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        launchCountLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        // launchCountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        // launchCountLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
     }
     
     //MARK: - Timer func
-    
     //  Action for button generate - Timer
-    @objc func anyTimerHey() {
+    @objc func timerActions() {
         let randomItem = displayRandomValueFromArrayOfFood(item: items.randomElement())
         label.text = randomItem
         
         // save date and value to userdefaults
         if runCount == 13 {
-            //          addDateForItem(nameItem: randomItem)
             addDateFor(item: randomItem)
         }
     }
     
     //MARK: - Hide Custom Blur View then tap area
     func hideViewWhenTappedAround() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideBlurView))
         view.addGestureRecognizer(tapGesture)
     }
-    @objc func hideView(){
-        blurView.isHidden = true
+    @objc func hideBlurView(){
+        blurView.fadeOut() // blurView.isHidden = true//label.isHidden = false
     }
     
     
     //MARK: - Action for button Generate
     @objc func generateButtonAction() {
-        blurView.isHidden = false
         
-        //        var runCount = 0
+        if blurView.isHidden {
+            blurView.fadeIn()
+        }
+        // blurView.isHidden = false
+        
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-            self.anyTimerHey()
+            self.timerActions()
             self.runCount += 1
             if self.runCount == 14 {
                 
                 timer.invalidate()
                 self.runCount = 0
             }
-            
         }
         
         //Подсчет использования приложением..
-        switch launchCount {
-        case 10:
-            print("Вау, вы воспользовались приложение уже 10 раз ))")
-        case 50:
-            print("Вау, вы воспользовались приложение уже 50 раз ))")
-        case 100:
-            print("Ничоси, вы воспользовались приложение уже 100 раз ))")
-        default:
-            break
-        }
-        
-        launchCount += 1
-        UserDefaults.standard.set(launchCount, forKey: "launchCount")
-        UserDefaults.standard.synchronize()
-//        launchCountLabel.text = "\(launchCount)"
+//        switch launchCount {
+//        case 10:
+//            print("Вау, вы воспользовались приложение уже 10 раз ))")
+//        case 50:
+//            print("Вау, вы воспользовались приложение уже 50 раз ))")
+//        case 100:
+//            print("Ничоси, вы воспользовались приложение уже 100 раз ))")
+//        default:
+//            break
+//        }
+//
+//        launchCount += 1
+//        UserDefaults.standard.set(launchCount, forKey: "launchCount")
+//        UserDefaults.standard.synchronize()
+        // launchCountLabel.text = "\(launchCount)"
     }
     
+    @IBAction func historyButtonPressed(_ sender: UIBarButtonItem) {
+        
+        hideBlurView()
+        
+        if let historyVC = storyboard?.instantiateViewController(withIdentifier: "HistoryVC") as? HistoryViewController {
+            navigationController?.pushViewController(historyVC, animated: true)
+        }
+    }
+    
+    
     //MARK: - Protocol Delegate
-    func whenTapAdd(sender: UIButton) {
+    func addButtonPressed(sender: UIButton) {
         // print("Protocol on button Tap")
         tableView.reloadData()
+        hideBlurView()
     }
 }
 
@@ -212,7 +224,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         
         
-        
         if indexPath.section == 0 {
             cell.addButton.isHidden = false
             cell.textField.isHidden = false
@@ -231,7 +242,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     // didSelectRowAt
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //            print("Did select")
+        // print("Did select")
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
