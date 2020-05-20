@@ -76,6 +76,8 @@ class HistoryViewController: UIViewController {
         activateContraints()
         tableView.tableFooterView = UIView() // hide unnecessary table lines
         self.navigationItem.title = history
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "shareFile"), style: .plain, target: self, action: #selector(shareCSVButtonPressed))
         
         if decodedObject.isEmpty {
             button.isHidden = true
@@ -85,9 +87,8 @@ class HistoryViewController: UIViewController {
             label.isHidden = true
         }
     }
-    
-    @IBAction func ShareCSVButtonPressed(_ sender: UIBarButtonItem) {
         
+    @objc func shareCSVButtonPressed() {
         guard let pathCVS = createCSV(from: decodedObject) else { return }
         
         let activityVC = UIActivityViewController(activityItems: [pathCVS], applicationActivities: nil)
