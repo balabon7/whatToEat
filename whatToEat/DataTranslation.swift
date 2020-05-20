@@ -18,6 +18,8 @@ let dishName = NSLocalizedString("dishName_key", comment: "")
 let noValueExists = NSLocalizedString("noValueExists_key", comment: "")
 let addHere = NSLocalizedString("addHere_key", comment: "")
 let allFood = NSLocalizedString("allFood_key", comment: "")
+let dateAndTime = NSLocalizedString("dateAndTime_key", comment: "")
+let food = NSLocalizedString("food_key", comment: "")
 
 // Name of the dishes in the array
 let omelette = NSLocalizedString("omelette_key", comment: "")

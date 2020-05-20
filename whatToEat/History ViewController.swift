@@ -85,9 +85,43 @@ class HistoryViewController: UIViewController {
             label.isHidden = true
         }
     }
+    
+    @IBAction func ShareCSVButtonPressed(_ sender: UIBarButtonItem) {
+        
+        guard let pathCVS = createCSV(from: decodedObject) else { return }
+        
+        let activityVC = UIActivityViewController(activityItems: [pathCVS], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    // Convert String Array to String
+    func getString(array : [String]) -> String {
+        let stringArray = array.map{ String($0) }
+        return stringArray.joined(separator: ",")
+    }
+    
+    // MARK: CSV file creating
+    func createCSV(from array:[DataHistory]) -> URL? {
+        let fileName = "History.csv"
+        let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+        var csvString = "\(dateAndTime),\(food)\n\n"
+        
+        for item in array {
+            csvString = csvString.appending("\(String(describing: item.date)) ,\(String(describing: getString(array: item.value)))\n")
+        }
+        
+        do {
+            try csvString.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("Failed to create file")
+            print("\(error)")
+        }
+        return path
+    }
 }
 
-    // MARK: - TableView Protocols: Delegate and DataSource
+// MARK: - TableView Protocols: Delegate and DataSource
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

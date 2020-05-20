@@ -13,7 +13,7 @@ class MainViewController: BaseViewController, ButtonDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     private var timer: Timer?
-   // private var launchCount = 0 // количество запусков приложения (Пасхалка)
+    // private var launchCount = 0 // количество запусков приложения (Пасхалка)
     private var runCount = 0 // счетчик
     
     // MARK: - Generate button properties
@@ -155,20 +155,20 @@ class MainViewController: BaseViewController, ButtonDelegate {
         }
         
         //Подсчет использования приложением..
-//        switch launchCount {
-//        case 10:
-//            print("Вау, вы воспользовались приложение уже 10 раз ))")
-//        case 50:
-//            print("Вау, вы воспользовались приложение уже 50 раз ))")
-//        case 100:
-//            print("Ничоси, вы воспользовались приложение уже 100 раз ))")
-//        default:
-//            break
-//        }
-//
-//        launchCount += 1
-//        UserDefaults.standard.set(launchCount, forKey: "launchCount")
-//        UserDefaults.standard.synchronize()
+        //        switch launchCount {
+        //        case 10:
+        //            print("Вау, вы воспользовались приложение уже 10 раз ))")
+        //        case 50:
+        //            print("Вау, вы воспользовались приложение уже 50 раз ))")
+        //        case 100:
+        //            print("Ничоси, вы воспользовались приложение уже 100 раз ))")
+        //        default:
+        //            break
+        //        }
+        //
+        //        launchCount += 1
+        //        UserDefaults.standard.set(launchCount, forKey: "launchCount")
+        //        UserDefaults.standard.synchronize()
         // launchCountLabel.text = "\(launchCount)"
     }
     

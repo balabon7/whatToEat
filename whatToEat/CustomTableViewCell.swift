@@ -13,11 +13,11 @@ protocol ButtonDelegate: class {
 }
 
 class CustomTableViewCell: UITableViewCell, UITextFieldDelegate  {
-
+    
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     
-   weak var delegate: ButtonDelegate?
+    weak var delegate: ButtonDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,13 +30,13 @@ class CustomTableViewCell: UITableViewCell, UITextFieldDelegate  {
     
     // Max length UITextField
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
+        
         if(textField == textField){
-           let currentText = textField.text! + string
-           return currentText.count <= 14
+            let currentText = textField.text! + string
+            return currentText.count <= 14
         }
         return true
-      }
+    }
     
     
     // Add a new value with textField when you click button

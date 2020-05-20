@@ -132,14 +132,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RCK-d4-Q0M"/>
                     </view>
-                    <navigationItem key="navigationItem" title="History" id="CRH-9b-C8i"/>
+                    <navigationItem key="navigationItem" title="History" id="CRH-9b-C8i">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="shareFile" id="5mx-oN-DQw">
+                            <connections>
+                                <action selector="ShareCSVButtonPressed:" destination="dP1-a9-rjA" id="YTM-UX-3FL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="NiQ-lh-EXZ" id="d8v-k7-E61"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GyN-0J-Yac" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901.44927536231887" y="-6.0267857142857144"/>
+            <point key="canvasLocation" x="1613" y="-7"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="isn-qa-C2R">
@@ -160,9 +166,28 @@
             </objects>
             <point key="canvasLocation" x="-783" y="-7"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0XJ-AW-6aG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r9n-Gh-5E0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Jy-dI-n1s">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dP1-a9-rjA" kind="relationship" relationship="rootViewController" id="RYT-lF-3q0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g6l-tu-sRz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901.44927536231887" y="-6.0267857142857144"/>
+        </scene>
     </scenes>
     <resources>
         <image name="clock" width="30" height="30"/>
         <image name="plus" width="512" height="512"/>
+        <image name="shareFile" width="33" height="33"/>
     </resources>
 </document>

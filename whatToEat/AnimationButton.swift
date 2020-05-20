@@ -9,7 +9,7 @@
 import UIKit
 
 class AnimationButton: UIButton {
- 
+    
     private var animator = UIViewPropertyAnimator()
     private var normalColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     private var highlightedColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
@@ -21,10 +21,10 @@ class AnimationButton: UIButton {
     }
     
     public var touchDownColor: UIColor = .systemGreen {
-         didSet {
-             highlightedColor = touchDownColor
-         }
-     }
+        didSet {
+            highlightedColor = touchDownColor
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,7 +42,7 @@ class AnimationButton: UIButton {
         addTarget(self, action: #selector(touchDown), for: [.touchDown, .touchDragEnter])
         addTarget(self, action: #selector(touchUp), for: [.touchUpInside, .touchDragExit, .touchCancel])
     }
-
+    
     @objc private func touchDown() {
         animator.stopAnimation(true)
         backgroundColor = highlightedColor
